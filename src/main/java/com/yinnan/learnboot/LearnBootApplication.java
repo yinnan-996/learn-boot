@@ -9,5 +9,5 @@ public class LearnBootApplication {
     public static void main(String[] args) {
         SpringApplication.run(LearnBootApplication.class, args);
         System.out.println("Hello");
-    }ß
+    }
 }
