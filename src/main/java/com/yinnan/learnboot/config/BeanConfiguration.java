@@ -1,5 +1,6 @@
 package com.yinnan.learnboot.config;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
@@ -16,26 +17,27 @@ import org.springframework.context.annotation.Profile;
  * @author yinnan
  * @since 1.0-SNAPSHOT
  */
+@Slf4j
 @Configuration
 public class BeanConfiguration {
     @Bean
     @Profile("dev")
     public Runnable test1() {
-        System.out.println("开发环境使用的 Bean");
+        log.info("开发环境使用的 Bean");
         return () -> {};
     }
 
     @Bean
     @Profile("test")
     public Runnable test2() {
-        System.out.println("测试环境使用的 Bean");
+        log.info("测试环境使用的 Bean");
         return () -> {};
     }
 
     @Bean
     @Profile("ol")
     public Runnable test3() {
-        System.out.println("生成环境使用的 Bean");
+        log.info("生成环境使用的 Bean");
         return () -> {};
     }
 }
