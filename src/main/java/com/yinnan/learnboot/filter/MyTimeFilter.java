@@ -22,7 +22,7 @@ public class MyTimeFilter implements Filter {
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        System.out.println("=======初始化过滤器=========");
+        log.info("=======初始化过滤器=========");
     }
 
     @Override

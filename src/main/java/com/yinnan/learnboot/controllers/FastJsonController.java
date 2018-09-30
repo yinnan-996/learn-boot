@@ -21,7 +21,7 @@ import java.util.Date;
  */
 @Controller
 @RequestMapping("fastjson")
-public class FastjsonController {
+public class FastJsonController {
     @RequestMapping("/test")
     @ResponseBody
     public User test() {
@@ -30,6 +30,7 @@ public class FastjsonController {
         user.setUsername("yinnan");
         user.setPassword("menacy");
         user.setBirthday(new Date());
+        int i = 1/0;
         return user;
     }
 }

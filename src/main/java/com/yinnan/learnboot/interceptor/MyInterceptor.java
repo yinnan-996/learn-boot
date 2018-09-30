@@ -1,5 +1,6 @@
 package com.yinnan.learnboot.interceptor;
 
+import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
@@ -29,8 +30,8 @@ public class MyInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
         log.info("========preHandle=========");
-        log.info(((HandlerMethod)handler).getBean().getClass().getName());
-        log.info(((HandlerMethod)handler).getMethod().getName());
+//        log.info( JSON.toJSONString(      ((HandlerMethod)handler).getBean().getClass().getName()));
+//        log.info(JSON.toJSONString(       ((HandlerMethod)handler).getMethod().getName()));
 
         request.setAttribute("startTime", System.currentTimeMillis());
 
@@ -54,7 +55,7 @@ public class MyInterceptor implements HandlerInterceptor {
         Long start = (Long) request.getAttribute("startTime");
         log.info("耗时:"+(System.currentTimeMillis() - start));
 
-        log.info(exception);
+        log.info(String.valueOf(exception));
     }
 
 }
