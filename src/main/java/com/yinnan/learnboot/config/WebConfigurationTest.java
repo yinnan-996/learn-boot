@@ -31,7 +31,7 @@ import org.springframework.stereotype.Component;
 @PropertySource("classpath:config/webConfig.properties")
 @Data
 @Component
-public class WebConfiguration {
+public class WebConfigurationTest {
 
     private String userName;
 
