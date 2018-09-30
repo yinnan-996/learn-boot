@@ -38,14 +38,14 @@ public class DataSourceConfig {
     @Qualifier("examSystem")
     @ConfigurationProperties(prefix="spring.datasource.exam-system")
     public DataSource getMyDataSource(){
-        return new EncryptedDriverManagerDataSource();
+        return new DriverManagerDataSource();
     }
 
     @Bean(name = "sys")
     @Qualifier("sys")
     @ConfigurationProperties(prefix="spring.datasource.sys")
     public DataSource dataSource() {
-        return new EncryptedDriverManagerDataSource();
+        return new DriverManagerDataSource();
     }
 
 
