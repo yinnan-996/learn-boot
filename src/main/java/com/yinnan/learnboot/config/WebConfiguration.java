@@ -1,13 +1,17 @@
 package com.yinnan.learnboot.config;
 
 
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
+import org.springframework.stereotype.Component;
 
 /**
  * Created by IntelliJ IDEA.
@@ -23,15 +27,13 @@ import org.springframework.core.env.Environment;
  */
 @Slf4j
 @Configuration
+@ConfigurationProperties(prefix = "com.yinnan", ignoreUnknownFields = false)
+@PropertySource("classpath:config/webConfig.properties")
+@Data
+@Component
 public class WebConfiguration {
-    @Value("${ds.userName}")
+
     private String userName;
 
-    @Autowired
-    private Environment environment;
 
-    public void show() {
-        log.info("ds.userName ={}" , this.userName);
-        log.info("ds.password ={}" , this.environment.getProperty("ds.password"));
-    }
 }
