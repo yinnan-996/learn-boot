@@ -33,7 +33,7 @@ public class BeanConfiguration {
     }
 
     @Bean
-    @Profile("pro")
+    @Profile("ol")
     public Runnable test3() {
         System.out.println("生成环境使用的 Bean");
         return () -> {};
