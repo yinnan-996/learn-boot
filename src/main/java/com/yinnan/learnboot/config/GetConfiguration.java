@@ -27,7 +27,7 @@ public class GetConfiguration {
 
     @Bean(name="commonMap")
     public Map<String, String> commonMap(){
-        Map<String, String> result = getConfig("config/webConfig");
+        Map<String, String> result = getConfig("webConfig");
         return result;
     }
 

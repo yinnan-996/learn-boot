@@ -17,6 +17,10 @@ import org.springframework.context.annotation.PropertySource;
 
 import java.util.Map;
 
+/**
+ * boot启动入口
+ * @author yinnan
+ */
 @Slf4j
 @SpringBootApplication
 @EnableConfigurationProperties(WebConfiguration.class)
@@ -32,11 +36,6 @@ public class LearnBootApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(LearnBootApplication.class, args);
-        log.info("config={}",GetConfiguration.getConfig("application-dataSource"));
-        log.info("Hello");
     }
 
-    public void showWebConfig(){
-        log.info("username={}",webConfiguration.getUserName());
-    }
 }

@@ -54,24 +54,4 @@ public class DataSourceConfigTest {
         log.info("result={}", JSON.toJSONString(resultList2));
     }
 
-    @Autowired
-    DataSourceProperties dataSourceProperties;
-
-    @Autowired
-    ApplicationContext applicationContext;
-    @Test
-    public void contextLoad() {
-        // 获取配置的数据源
-        DataSource dataSource = applicationContext.getBean(DataSource.class);
-        // 查看配置数据源信息
-        System.out.println(dataSource);
-        System.out.println(dataSource.getClass().getName());
-        System.out.println(dataSourceProperties);
-        //执行SQL,输出查到的数据
-        JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
-        List<?> resultList = jdbcTemplate.queryForList("select * from flyway_schema_history");
-        System.out.println("===>>>>>>>>>>>" + JSON.toJSONString(resultList));
-    }
-
-
 }
