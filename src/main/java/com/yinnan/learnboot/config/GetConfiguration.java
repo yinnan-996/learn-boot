@@ -35,7 +35,7 @@ public class GetConfiguration {
         Map<String,String> result = new HashMap<>(1);
         try {
             Properties properties = new Properties();
-            InputStream in = GetConfiguration.class.getClassLoader().getResourceAsStream(name + ".properties");
+            InputStream in = GetConfiguration.class.getClassLoader().getResourceAsStream("config/"+name + ".properties");
             properties.load(in);
             log.info("加载{}.properties参数",name);
             for (String keyName : properties.stringPropertyNames()) {
