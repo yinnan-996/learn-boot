@@ -27,7 +27,7 @@ import java.util.concurrent.CopyOnWriteArraySet;
 @Component
 public class WebSocketController {
 
-    private static final Set<WebSocketController> connections = new CopyOnWriteArraySet<>();
+    private static final Set<WebSocketController> CONNECTIONS = new CopyOnWriteArraySet<>();
 
     private String nickname;
     private Session session;
@@ -41,14 +41,14 @@ public class WebSocketController {
     public void start(@PathParam("userName") String userName, Session session) {
         this.nickname = userName;
         this.session = session;
-        connections.add(this);
+        CONNECTIONS.add(this);
         String message = String.format("* %s %s", nickname, "加入聊天！");
         broadcast(message);
     }
 
     @OnClose
     public void end() {
-        connections.remove(this);
+        CONNECTIONS.remove(this);
         String message = String.format("* %s %s", nickname, "退出聊天！");
         broadcast(message);
     }
@@ -65,13 +65,13 @@ public class WebSocketController {
 
     private static void broadcast(String msg) {
         // 广播形式发送消息
-        for (WebSocketController client : connections) {
+        for (WebSocketController client : CONNECTIONS) {
             try {
                 synchronized (client) {
                     client.session.getBasicRemote().sendText(msg);
                 }
             } catch (IOException e) {
-                connections.remove(client);
+                CONNECTIONS.remove(client);
                 try {
                     client.session.close();
                 } catch (IOException e1) {

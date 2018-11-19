@@ -1,4 +1,4 @@
-package com.yinnan.learnboot.exceptionHandler;
+package com.yinnan.learnboot.exceptionhandler;
 
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -30,7 +30,7 @@ public class GlobalDefaultExceptionHandler {
     @ExceptionHandler(Exception.class)
     public Map<String,Object> defaultExceptionHandler(Exception e) {
 
-        Map<String,Object> map = new HashMap<String,Object>();
+        Map<String,Object> map = new HashMap<String,Object>(8);
         map.put("code", 500);
         map.put("msg", e.getMessage());
         return map;

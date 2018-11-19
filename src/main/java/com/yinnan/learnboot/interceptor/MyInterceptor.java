@@ -30,9 +30,6 @@ public class MyInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
         log.info("========preHandle=========");
-//        log.info( JSON.toJSONString(      ((HandlerMethod)handler).getBean().getClass().getName()));
-//        log.info(JSON.toJSONString(       ((HandlerMethod)handler).getMethod().getName()));
-
         request.setAttribute("startTime", System.currentTimeMillis());
 
         return true;
