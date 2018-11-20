@@ -43,10 +43,10 @@ public class DataSourceConfigTest {
 
     @Test
     public void contextLoads() {
-        //执行SQL,输出查到的数据
-        JdbcTemplate jdbcTemplate = new JdbcTemplate(examSystem);
-        List<?> resultList = jdbcTemplate.queryForList("select * from flyway_schema_history");
-        log.info("result={}", JSON.toJSONString(resultList));
+//        //执行SQL,输出查到的数据
+//        JdbcTemplate jdbcTemplate = new JdbcTemplate(examSystem);
+//        List<?> resultList = jdbcTemplate.queryForList("select * from flyway_schema_history");
+//        log.info("result={}", JSON.toJSONString(resultList));
 
         //执行SQL,输出查到的数据
         JdbcTemplate jdbcTemplate2 = new JdbcTemplate(sys);
