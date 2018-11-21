@@ -4,7 +4,7 @@ import com.yinnan.learnboot.interceptor.MyInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
 /**
  * Created by IntelliJ IDEA.
@@ -19,7 +19,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
  * @since 1.0-SNAPSHOT
  */
 @Configuration
-public class InterceptorConfiguration extends WebMvcConfigurerAdapter {
+public class InterceptorConfiguration extends WebMvcConfigurationSupport {
 
     @Autowired
     private MyInterceptor myInterceptor;
