@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns="http://www.menacy.com/schema/user"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://www.menacy.com/schema/user"
+            elementFormDefault="qualified">
+
+
+    <xsd:element name="user">
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="myIdentifiedType">
+                    <xsd:attributeGroup ref="myAttributes"/>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:attributeGroup name="myAttributes">
+        <xsd:attribute name="userName" type="xsd:string"/>
+        <xsd:attribute name="email" type="xsd:string"/>
+        <xsd:attribute name="password" type="xsd:string"/>
+    </xsd:attributeGroup>
+
+    <!-- base types -->
+    <xsd:complexType name="myIdentifiedType" abstract="true">
+        <xsd:attribute name="id" type="xsd:string">
+            <xsd:annotation>
+                <xsd:documentation><![CDATA[
+                myIdentifiedType
+				]]></xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:complexType>
+</xsd:schema>
+

@@ -1,7 +1,12 @@
 package com.yinnan.learnboot.controllers;
 
+import com.yinnan.learnboot.mybean.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
 
 /**
  * Created by IntelliJ IDEA.
@@ -17,6 +22,10 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class LoginController {
+
+    @Autowired
+    private User user;
+
     @GetMapping("/helloworld")
     public String helloworld() {
         return "helloworld";
@@ -26,4 +35,11 @@ public class LoginController {
     public String helloworld2() {
         return "helloworld2";
     }
+
+    @GetMapping("/user")
+    public User getUser() {
+        return user;
+    }
+
+
 }
