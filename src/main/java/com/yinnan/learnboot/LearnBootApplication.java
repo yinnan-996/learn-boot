@@ -39,6 +39,7 @@ public class LearnBootApplication {
     public static void main(String[] args) {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("TestBean.xml");
         User user = (User) applicationContext.getBean("testBean");
+        log.info("user ={}",user);
         SpringApplication.run(LearnBootApplication.class, args);
     }
 

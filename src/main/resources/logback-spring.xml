@@ -79,7 +79,7 @@
                 <pattern>${PATTERN}</pattern>
             </layout>
         </appender>
-        <root level="warn">
+        <root level="debug">
             <appender-ref ref="PROD_FILE" />
         </root>
     </springProfile>

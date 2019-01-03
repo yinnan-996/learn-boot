@@ -6,4 +6,5 @@
 
        http://www.menacy.com/schema/user http://www.menacy.com/schema/user/user-1.0.xsd">
     <myname:user id="testBean" userName="menacy" email="1301142455@qq.com" password="******"/>
+
 </beans>
